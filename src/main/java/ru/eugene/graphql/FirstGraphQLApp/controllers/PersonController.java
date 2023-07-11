@@ -22,6 +22,6 @@ public class PersonController {
         return personService.findAll();
     }
 
-    
+
 
 }
