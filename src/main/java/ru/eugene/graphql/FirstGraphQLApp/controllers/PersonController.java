@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 import ru.eugene.graphql.FirstGraphQLApp.DTO.BookDTO;
 import ru.eugene.graphql.FirstGraphQLApp.DTO.PersonDTO;
@@ -12,6 +13,8 @@ import ru.eugene.graphql.FirstGraphQLApp.DTO.PersonInput;
 import ru.eugene.graphql.FirstGraphQLApp.models.Person;
 import ru.eugene.graphql.FirstGraphQLApp.services.BookService;
 import ru.eugene.graphql.FirstGraphQLApp.services.PersonService;
+
+import java.util.List;
 
 @Controller
 public class PersonController {
@@ -27,6 +30,12 @@ public class PersonController {
     public Iterable<PersonDTO> people(){
         return personService.findAllDTO();
     }
+
+    /*      Этот метод, если названия полей не совпадают
+    @SchemaMapping(typeName = "Person", field = "books")
+    public List<BookDTO> getBooks(PersonDTO personDTO){
+        return personDTO.getBooks();
+    }*/
 
     @QueryMapping(name = "person")
     public PersonDTO getPersonById(@Argument int id){
