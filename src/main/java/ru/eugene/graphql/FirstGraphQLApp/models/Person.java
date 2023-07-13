@@ -1,6 +1,7 @@
 package ru.eugene.graphql.FirstGraphQLApp.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -24,8 +25,7 @@ public class Person {
     private int age;
 
     @OneToMany(mappedBy = "person")
-    @JsonBackReference
-    private List<Book> bookList;
+    private List<Book> books;
 
     public Person() {
     }
@@ -69,10 +69,15 @@ public class Person {
     }
 
     public List<Book> getBookList() {
-        return bookList;
+        return books;
     }
 
     public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
+        this.books = bookList;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + " " + this.surname + ": " + this.books;
     }
 }

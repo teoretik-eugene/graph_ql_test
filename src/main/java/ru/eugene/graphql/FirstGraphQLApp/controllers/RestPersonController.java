@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.eugene.graphql.FirstGraphQLApp.DTO.PersonDTO;
 import ru.eugene.graphql.FirstGraphQLApp.models.Person;
 import ru.eugene.graphql.FirstGraphQLApp.services.PersonService;
 
@@ -23,13 +24,15 @@ public class RestPersonController {
     }
 
     @GetMapping()
-    public List<Person> getAll(){
-        return personService.findAll();
+    public List<PersonDTO> getAll(){
+        return personService.findAllDTO();
     }
 
     @GetMapping("/{id}")
-    public Person getById(@PathVariable int id){
+    public PersonDTO getById(@PathVariable int id){
         return personService.findById(id);
     }
+
+
 
 }

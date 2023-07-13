@@ -2,20 +2,36 @@ type Query{
     hello: String
     persons: [Person]
     person(id: ID!): Person
-    books: [Book]
+    books: [Book!]
+    book(id: ID!): Book
 
+}
+
+type Mutation {
+    addPerson(person: PersonInput): Person
+    addBook(book: BookInput): Book
+    addBookToPerson(personId: ID, bookId: ID): Person
 }
 
 type Person {
-    id: ID
     name: String
     surname: String
     age: Int
-    book: [Book]
+    books: [Book!]
+}
+
+input PersonInput {
+    name: String
+    surname: String
+    age: Int
 }
 
 type Book {
-    id: ID
     title: String
+    author: String
+}
+
+input BookInput {
+    title:String
     author: String
 }

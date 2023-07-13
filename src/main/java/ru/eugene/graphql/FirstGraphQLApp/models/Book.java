@@ -1,5 +1,6 @@
 package ru.eugene.graphql.FirstGraphQLApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -20,7 +21,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id")
-    @JsonManagedReference
+    //@JsonManagedReference
     private Person person;
 
     public Book() {
