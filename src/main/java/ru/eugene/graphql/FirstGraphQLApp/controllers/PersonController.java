@@ -40,7 +40,7 @@ public class PersonController {
 
     @MutationMapping(name = "addBookToPerson")
     public PersonDTO addBookToPerson(@Argument(name = "personId") int personId,
-                                         @Argument(name = "bookId") int bookId){
+                                         @Argument(name = "bookId") int bookId) {
         return personService.addBook(personId, bookId);
     }
 }
