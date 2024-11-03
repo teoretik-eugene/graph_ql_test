@@ -3,7 +3,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/GraphDB
     username: postgres
-    password: Panas53982
+    password: ***
   graphql:
     graphiql:
       enabled: true
